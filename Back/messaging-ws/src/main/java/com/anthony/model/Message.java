@@ -1,6 +1,9 @@
 package com.anthony.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Message {
 
@@ -17,6 +20,9 @@ public class Message {
 	BigDecimal amountBuy;
 
 	BigDecimal rate;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-yy HH:mm:ss")
+	Date timePlaced;
 
 	String originatingCountry;
 
@@ -125,6 +131,20 @@ public class Message {
 		this.rate = rate;
 	}
 
+	/**
+	 * @return the timePlaced
+	 */
+	public Date getTimePlaced() {
+		return timePlaced;
+	}
+
+	/**
+	 * @param timePlaced the timePlaced to set
+	 */
+	public void setTimePlaced(Date timePlaced) {
+		this.timePlaced = timePlaced;
+	}
+	
 	/**
 	 * @return the originatingCountry
 	 */

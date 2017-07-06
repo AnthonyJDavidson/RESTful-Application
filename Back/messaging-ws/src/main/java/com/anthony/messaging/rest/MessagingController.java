@@ -1,8 +1,10 @@
 package com.anthony.messaging.rest;
 
 import java.util.ArrayList;
+
 import com.anthony.model.Message;
 import com.anthony.service.MessagingService;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
