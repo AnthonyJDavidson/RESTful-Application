@@ -1,8 +1,10 @@
 package com.anthony.messaging.rest;
 
 import java.util.ArrayList;
+
 import com.anthony.model.Message;
 import com.anthony.service.MessagingService;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +18,7 @@ public class MessagingController {
 
 	@RequestMapping(value = "/messages", method = RequestMethod.GET, headers = "Accept=application/json")
 	public ArrayList<Message> getMessages() {
-		ArrayList<Message> listOfMessages = messageService.getAllMessages();
-		return listOfMessages;
+		return messageService.getAllMessages();
 	}
 
 	@RequestMapping(value = "/message/{id}", method = RequestMethod.GET, headers = "Accept=application/json")

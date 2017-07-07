@@ -2,8 +2,13 @@ package com.anthony.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.anthony.model.*;
+import com.anthony.persistence.dao.impl.MessagesJdbcDaoImpl;
 
 /*
  * It is just a helper class which should be replaced by database implementation.
@@ -12,6 +17,8 @@ import com.anthony.model.*;
 public class MessagingService {
 
 	static HashMap<Integer, Message> messageIdMap = getMessageIdMap();
+	
+	private MessagesJdbcDaoImpl messagesJdbcDaoImpl;
 
 	public MessagingService() {
 		super();
@@ -59,5 +66,9 @@ public class MessagingService {
 
 		}
 		return max;
+	}
+	
+	public ArrayList<Message> getMessages() {
+		return messagesJdbcDaoImpl.getMessages();
 	}
 }
