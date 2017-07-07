@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MessagesService } from './common/service/messages.service'
 
+import { DataTablesModule } from 'angular-datatables';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,7 +16,8 @@ import { MessagesService } from './common/service/messages.service'
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    DataTablesModule
   ],
   providers: [MessagesService],
   bootstrap: [AppComponent]

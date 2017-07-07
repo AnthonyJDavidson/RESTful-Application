@@ -15,12 +15,12 @@ export class HomeComponent implements OnInit {
   constructor(private messageService: MessagesService) { }
 
   ngOnInit() {
+    this.messages = [];
     this.getMessages();
   }
 
   getMessages(): void {
     this.messageService.getMessages().then(messages => this.messages = messages);
-    console.log(this.messages);
   }
 
 }
