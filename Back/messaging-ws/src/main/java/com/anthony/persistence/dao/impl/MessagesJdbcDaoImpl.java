@@ -19,11 +19,10 @@ public class MessagesJdbcDaoImpl implements MessagesDao {
 
 	/** Named JDBC template. */
 	@Autowired
-	@Qualifier("messagesJdbcTemplate")
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
 	/** Contact lookup SQL. */
-	final String SQL_GET_MESSAGE = "";
+	final String SQL_GET_MESSAGE = "select * from messages";
 
 	/**
 	 * Returns list of warrants that user can access for given customerNumber
@@ -32,8 +31,8 @@ public class MessagesJdbcDaoImpl implements MessagesDao {
 	 * @param customerNumber Customer Number to look up
 	 * @return list of warrants for given customerNumber
 	 */
-	public List<Message> getMessages() {
-		List<Message> messageList = new ArrayList<Message>();
+	public ArrayList<Message> getMessages() {
+		ArrayList<Message> messageList = new ArrayList<Message>();
 
 		try {
 			MapSqlParameterSource params = new MapSqlParameterSource();

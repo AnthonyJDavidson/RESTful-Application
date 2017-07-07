@@ -18,8 +18,7 @@ public class MessagingController {
 
 	@RequestMapping(value = "/messages", method = RequestMethod.GET, headers = "Accept=application/json")
 	public ArrayList<Message> getMessages() {
-		ArrayList<Message> listOfMessages = messageService.getAllMessages();
-		return listOfMessages;
+		return messageService.getAllMessages();
 	}
 
 	@RequestMapping(value = "/message/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
