@@ -17,14 +17,15 @@
 	</bean>
 
 	<!-- data source -->
+<!-- 
 	<bean id="messageDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="postgreDatabase" />
 		<property name="url" value="databaseURL" />
 		<property name="username" value="messagedb" />
 		<property name="password" value="m3ssagedb" />
 	</bean>
-
 	<bean id="messagedatasource" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
 		<constructor-arg ref="messageDataSource" />
 	</bean>
+ -->
 </beans>
