@@ -8,4 +8,23 @@
  <mvc:annotation-driven/>
 <context:component-scan base-package=" com.anthony.messaging.rest" />
 
+
+	<bean id="corsFilter" name="corsFilter" class="com.anthony.messaging.rest.CorsFilter" />
+	
+	<bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_FALLBACK" />
+		<property name="location" value="file:${com.anthony.messages.properties}" />
+	</bean>
+
+	<!-- data source -->
+	<bean id="messageDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="postgreDatabase" />
+		<property name="url" value="databaseURL" />
+		<property name="username" value="messagedb" />
+		<property name="password" value="m3ssagedb" />
+	</bean>
+
+	<bean id="messagedatasource" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="messageDataSource" />
+	</bean>
 </beans>
