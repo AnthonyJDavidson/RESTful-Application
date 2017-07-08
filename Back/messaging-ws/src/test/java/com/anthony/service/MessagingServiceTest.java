@@ -1,41 +1,49 @@
 package com.anthony.service;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
+import java.util.ArrayList;
 import junitx.util.PrivateAccessor;
 
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+
+import com.anthony.model.Message;
+import com.anthony.persistence.dao.MessagesDao;
+import com.anthony.service.impl.MessagingServiceImpl;
 
 
 public class MessagingServiceTest {
-	//declare private objects;
+	
+	// service to test
+	private MessagingServiceImpl service;
+	
+	// mock dao object
+	private MessagesDao messagesDao;
 	
 	@Before
 	public void setup() throws Exception {
-		// create mocks
-//		
-//		dao = EasyMock.createMock(Classname.class);
-//		// privaate fields
-//		PrivateAccessor.setField(service, "dao", dao);
+		service = new MessagingServiceImpl();
+		messagesDao = EasyMock.createMock(MessagesDao.class);
+		PrivateAccessor.setField(service, "messagesDao", messagesDao);
 	}
 	
-//	/** Verifies functionality. */
-//	@Test
-//	public void test() throws JsonParseException, JsonMappingException, IOException {
-//		EasyMock.expect(privateThing.doSomething).andReturn(
-//				mockItem);
-//		EasyMock.replay(privateThing);
-//
-//		Assert
-//	}
+	/** Verifies functionality. */
+	@Test
+	@Ignore
+	public void testGetMessages() {
+		
+		ArrayList<Message> messagesList = new ArrayList<Message>();
+		Message message = new Message();
+		messagesList.add(message);
+		
+		EasyMock.expect(messagesDao.getMessages()).andReturn(
+				messagesList);
+		EasyMock.replay(messagesDao);
+
+		Assert.assertEquals(1, service.getMessages().size());
+	}
 
 }

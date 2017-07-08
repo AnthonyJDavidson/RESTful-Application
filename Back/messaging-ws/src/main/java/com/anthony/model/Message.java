@@ -7,23 +7,32 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Message {
 
+	/** id */
 	Integer id;
 
+	/** userId */
 	String userId;
 
+	/** currencyFrom */
 	String currencyFrom;
 
+	/** currencyTo */
 	String currencyTo;
 
+	/** amountSell */
 	BigDecimal amountSell;
 
+	/** amountBuy */
 	BigDecimal amountBuy;
 
+	/** rate */
 	BigDecimal rate;
-	
+
+	/** timePlaced */
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-yy HH:mm:ss")
 	Date timePlaced;
 
+	/** originatingCountry */
 	String originatingCountry;
 
 	/**
@@ -139,12 +148,13 @@ public class Message {
 	}
 
 	/**
-	 * @param timePlaced the timePlaced to set
+	 * @param timePlaced
+	 *            the timePlaced to set
 	 */
 	public void setTimePlaced(Date timePlaced) {
 		this.timePlaced = timePlaced;
 	}
-	
+
 	/**
 	 * @return the originatingCountry
 	 */
