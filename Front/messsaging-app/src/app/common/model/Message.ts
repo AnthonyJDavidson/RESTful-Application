@@ -7,5 +7,5 @@ export class Message {
   amountBuy: number;
   rate: number;
   timePlaced: Date;
-  originatingCountry: number;
+  originatingCountry: string;
 }

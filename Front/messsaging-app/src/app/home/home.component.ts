@@ -11,6 +11,7 @@ import { Message } from './../common/model/Message'
 export class HomeComponent implements OnInit {
 
   private messages: Message[];
+  messagesLoaded: Boolean;
 
   constructor(private messageService: MessagesService) { }
 
@@ -20,7 +21,14 @@ export class HomeComponent implements OnInit {
   }
 
   getMessages(): void {
-    this.messageService.getMessages().then(messages => this.messages = messages);
+    this.messageService.getMessages()
+      .then(
+        messages =>
+        {
+          this.messages = messages;
+          console.log(this.messages);
+          this.messagesLoaded = true;
+        });
   }
 
 }

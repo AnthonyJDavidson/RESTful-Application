@@ -1,3 +1,4 @@
+<div *ngIf="messagesLoaded">
 <table datatable class="row-border hover messages-table" style="width:100%">
   <thead>
   <tr>
@@ -17,8 +18,24 @@
       <td>{{messsage.currencyFrom}}</td>
       <td>{{messsage.currencyTo}}</td>
       <td>{{messsage.rate}}</td>
-      <td>{{messsage.timePlaced}}</td>
+      <td>{{messsage.timePlaced | date: 'dd-MMM-yyyy'}}</td>
       <td>{{messsage.originatingCountry}}</td>
     </tr>
   </tbody>
 </table>
+<div>
+  <h1>Data Breakdown</h1>
+   <div class="col-md-2">
+    <div class="col-md-12">By Country Origin</div>
+    <div style="display: block;">
+      <app-pie-chart [messages]="messages"></app-pie-chart>
+    </div>
+   </div>
+   <div class="col-md-6">
+    <div class="col-md-12">Volume over the last year</div>
+    <div style="display: block;">
+      <app-bar-chart [messages]="messages"></app-bar-chart>
+    </div>
+   </div>
+</div>
+</div>
