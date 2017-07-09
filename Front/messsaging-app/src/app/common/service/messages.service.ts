@@ -11,7 +11,7 @@ export class MessagesService {
 
   private headers = new Headers({'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*' });
   private options = new RequestOptions({headers: this.headers});
-  private messagesUrl = 'http://ec2-52-17-65-114.eu-west-1.compute.amazonaws.com:8080/messaging-ws/messages';
+  private messagesUrl = 'http://ec2-34-252-53-110.eu-west-1.compute.amazonaws.com:8080/messaging-ws/messages';
 
   constructor(private http: Http) { }
 
